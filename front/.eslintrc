@@ -3,12 +3,12 @@
     "ecmaVersion": 2018,
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx" : true
+      "jsx": true
     }
   },
-  "env" : {
+  "env": {
     "browser": true,
-    "node" : true
+    "node": true
   },
   "extends": [
     "eslint:recommended",

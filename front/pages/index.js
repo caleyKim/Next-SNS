@@ -1,31 +1,22 @@
 import React from 'react';
-// import { Button, Card, Icon, Avatar } from 'antd';
-import PostForm from '../components/PostForm'
-import PostCard from '../components/PostCard'
-const dummy = {
-  isLoggedIn : true,
-  imagePaths : [],
-  mainPosts : [{
-    User : {
-      id : 1,
-      nickname : '김경현',
-      content : '첫번째 게시글'
-    },
-    img : 'http://image.itdonga.com/files/2013/05/29/1_4_1.jpg'
-  }]
-}
+import PostForm from '../components/PostForm';
+import PostCard from '../components/PostCard';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+
+  const { isLoggedIn } = useSelector(state => state.user);
+  const { mainPosts } = useSelector(state => state.post);
   return (
-    <>
-      {dummy.isLoggedIn && <PostForm />}
-      {dummy.mainPosts.map((c) => {
+    <div>
+      {isLoggedIn && <PostForm />}
+      {mainPosts.map((c) => {
         return (
-          <PostCard key={c} data={c}/>
-        )
+          <PostCard key={c} post={c} />
+        );
       })}
-    </>
+    </div>
   );
-}
+};
 
 export default Home;
