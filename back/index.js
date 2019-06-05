@@ -4,7 +4,9 @@ const cors = require('cors')
 const cookieparser = require('cookie-parser');
 const expressSession = require('express-session');
 const dotenv = require('dotenv');
+const passport = require('passport')
 
+const passportConfig = require('./passport')
 const db = require('./models');
 
 const userApiRouter = require('./routes/user');
@@ -13,7 +15,8 @@ const postsApiRouter = require('./routes/posts');
 
 dotenv.config();
 const app = express();
-db.sequelize.sync()
+db.sequelize.sync();
+passportConfig();
 
 app.use(morgan('dev'))
 app.use(express.json());
@@ -29,6 +32,8 @@ app.use(expressSession({
     secure : false, // https 를 쓸때 true 로
   }
 }))
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/api/user', userApiRouter);
 app.use('/api/post', postApiRouter);

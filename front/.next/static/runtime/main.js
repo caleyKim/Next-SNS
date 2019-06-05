@@ -7435,7 +7435,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      source_map_support_1.rewriteStacktrace(error, "C:\\Users\\Leysys_02\\Desktop\\새 폴더\\공부\\sns\\react-nodebird\\ch3\\front\\.next");
+      source_map_support_1.rewriteStacktrace(error, "C:\\Users\\Leysys_02\\Desktop\\새 폴더\\공부\\next-sns\\Next-SNS\\front\\.next");
       return error;
     }
   };

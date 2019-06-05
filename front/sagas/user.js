@@ -3,16 +3,21 @@ import { all, takeLatest, call, put, takeEvery, fork, delay } from 'redux-saga/e
 import axios from 'axios';
 import { SIGN_UP_REQUEST,SIGN_UP_FAILURE,LOG_IN_REQUEST,LOG_IN_FAILURE, LOG_IN_SUCCESS, SIGN_UP_SUCCESS  } from '../reducers/user';
 
-function* loginAPI(){
+axios.defaults.baseURL = 'http://localhost:6060/api'
 
+function* logInAPI(loginData){
+  return axios.post('/user/login', loginData, {
+    withCredentials: true,
+  })
 }
-function* login(){
+function* login(action){
   try{
-    // yield call(loginAPI);
-    yield delay(2000);
-    yield put({
-      type : LOG_IN_SUCCESS
-    })
+    const result = yield call(logInAPI, action.data);
+    console.log(result)
+    // yield put({
+    //   type : LOG_IN_SUCCESS,
+    //   data : result.data
+    // })
   } catch(e){
     console.error(e);
     yield put({
@@ -28,7 +33,7 @@ function* watchLogin(){
 
 
 function* signUpAPI(signUpData){
-  return axios.post('http://localhost:6060/api/user',signUpData)
+  return axios.post('/user',signUpData)
 }
 
 

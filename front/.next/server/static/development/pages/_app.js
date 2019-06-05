@@ -114,7 +114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _LoginForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./LoginForm */ "./components/LoginForm.js");
 /* harmony import */ var _UserProfile__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./UserProfile */ "./components/UserProfile.js");
-var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\sns\\react-nodebird\\ch3\\front\\components\\AppLayout.js";
+var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\next-sns\\Next-SNS\\front\\components\\AppLayout.js";
 
 
 
@@ -289,7 +289,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_signup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/signup */ "./pages/signup.js");
 /* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
 
-var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\sns\\react-nodebird\\ch3\\front\\components\\LoginForm.js";
+var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\next-sns\\Next-SNS\\front\\components\\LoginForm.js";
 
 
 
@@ -319,7 +319,7 @@ var LoginForm = function LoginForm() {
     dispatch({
       type: _reducers_user__WEBPACK_IMPORTED_MODULE_6__["LOG_IN_REQUEST"],
       data: {
-        id: id,
+        userId: id,
         password: password
       }
     });
@@ -453,7 +453,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "react-redux");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _reducers_user__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../reducers/user */ "./reducers/user.js");
-var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\sns\\react-nodebird\\ch3\\front\\components\\UserProfile.js";
+var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\next-sns\\Next-SNS\\front\\components\\UserProfile.js";
 
 
 
@@ -472,46 +472,7 @@ var UserProfile = function UserProfile() {
     });
   }, []);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_0__["Card"], {
-    actions: [react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      key: "twit",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
-    }, "\uC9F9\uC9F9", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 19
-      },
-      __self: this
-    }), me.Post.length), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      key: "following",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
-    }, "\uD314\uB85C\uC789", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 20
-      },
-      __self: this
-    }), me.Followings.length), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
-      key: "follower",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }, "\uD314\uB85C\uC6CC", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 21
-      },
-      __self: this
-    }), me.Followers.length)],
+    actions: [],
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
@@ -521,21 +482,21 @@ var UserProfile = function UserProfile() {
     avatar: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_0__["Avatar"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 25
+        lineNumber: 21
       },
       __self: this
     }, me.nickname[0]),
     title: me.nickname,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 20
     },
     __self: this
   }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(antd__WEBPACK_IMPORTED_MODULE_0__["Button"], {
     onClick: onLogout,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 24
     },
     __self: this
   }, "\uB85C\uADF8\uC544\uC6C3"));
@@ -1469,7 +1430,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _sagas__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../sagas */ "./sagas/index.js");
 /* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! redux-saga */ "redux-saga");
 /* harmony import */ var redux_saga__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(redux_saga__WEBPACK_IMPORTED_MODULE_9__);
-var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\sns\\react-nodebird\\ch3\\front\\pages\\_app.js";
+var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\next-sns\\Next-SNS\\front\\pages\\_app.js";
 
 
 
@@ -1574,7 +1535,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! next/router */ "next/router");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_5__);
 
-var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\sns\\react-nodebird\\ch3\\front\\pages\\signup.js";
+var _jsxFileName = "C:\\Users\\Leysys_02\\Desktop\\\uC0C8 \uD3F4\uB354\\\uACF5\uBD80\\next-sns\\Next-SNS\\front\\pages\\signup.js";
 
 
 
@@ -2216,7 +2177,7 @@ var logoutAction = {
         return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
           isLoggingIn: false,
           isLoggedIn: true,
-          me: dummyUser,
+          me: action.data,
           isLoding: false
         });
       }
@@ -2500,7 +2461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _marked =
 /*#__PURE__*/
-_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(loginAPI),
+_babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(logInAPI),
     _marked2 =
 /*#__PURE__*/
 _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(login),
@@ -2524,12 +2485,18 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(u
 
 
 
+axios__WEBPACK_IMPORTED_MODULE_2___default.a.defaults.baseURL = 'http://localhost:6060/api';
 
-function loginAPI() {
-  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function loginAPI$(_context) {
+function logInAPI(loginData) {
+  return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function logInAPI$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
+          return _context.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/user/login', loginData, {
+            withCredentials: true
+          }));
+
+        case 1:
         case "end":
           return _context.stop();
       }
@@ -2537,22 +2504,23 @@ function loginAPI() {
   }, _marked);
 }
 
-function login() {
+function login(action) {
+  var result;
   return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function login$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.prev = 0;
           _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["delay"])(2000);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(logInAPI, action.data);
 
         case 3:
-          _context2.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _reducers_user__WEBPACK_IMPORTED_MODULE_3__["LOG_IN_SUCCESS"]
-          });
+          result = _context2.sent;
+          console.log(result); // yield put({
+          //   type : LOG_IN_SUCCESS,
+          //   data : result.data
+          // })
 
-        case 5:
           _context2.next = 12;
           break;
 
@@ -2594,7 +2562,7 @@ function signUpAPI(signUpData) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
-          return _context4.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('http://localhost:6060/api/user', signUpData));
+          return _context4.abrupt("return", axios__WEBPACK_IMPORTED_MODULE_2___default.a.post('/user', signUpData));
 
         case 1:
         case "end":
