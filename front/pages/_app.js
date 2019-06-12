@@ -26,10 +26,21 @@ const NodeBird = ({ Component, store }) => {
   );
 };
 
+
 NodeBird.propTypes = {
   Component: PropTypes.elementType.isRequired,
   store: PropTypes.object.isRequired,
 };
+
+NodeBird.getInitialProps = async (context) => {
+  console.log(context)
+  const { ctx } = context;
+  let pageProps = {}
+  if(context.Component.getInitialProps(ctx)){
+    pageProps = await context.Component.getInitialProps(ctx)
+  }
+  return { pageProps };
+}
 
 const configureStore = (initialState, options) => {
   const sagaMiddleware = createSagaMiddleware();

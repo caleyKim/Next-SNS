@@ -15,22 +15,27 @@ const postsApiRouter = require('./routes/posts');
 
 dotenv.config();
 const app = express();
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 db.sequelize.sync();
 passportConfig();
 
 app.use(morgan('dev'))
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
-app.use(cors());
+
 app.use(cookieparser(process.env.COOKIE_SECRET));
 app.use(expressSession({
-  resave : false,
-  saveUninitialized : false,
-  secret : process.env.COOKIE_SECRET,
-  cookie : {
-    httpOnly : true,
-    secure : false, // https 를 쓸때 true 로
-  }
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.COOKIE_SECRET,
+  cookie: {
+    httpOnly: true,
+    secure: false, // https를 쓸 때 true
+  },
+  name: 'rnbck',
 }))
 app.use(passport.initialize());
 app.use(passport.session());
