@@ -12,6 +12,7 @@ const db = require('./models');
 const userApiRouter = require('./routes/user');
 const postApiRouter = require('./routes/post');
 const postsApiRouter = require('./routes/posts');
+const hashtagApiRouter = require('./routes/hashtag');
 
 dotenv.config();
 const app = express();
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use('/api/user', userApiRouter);
 app.use('/api/post', postApiRouter);
 app.use('/api/posts', postsApiRouter);
+app.use('/api/hashtag', hashtagApiRouter);
 
 
 

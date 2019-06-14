@@ -1,3 +1,5 @@
+import { bindActionCreators } from "../../../../../../../AppData/Local/Microsoft/TypeScript/3.1/node_modules/redux";
+
 const dummyUser = {
   nickname: '제로초',
   Post: [],
@@ -119,10 +121,16 @@ export default (state = initialState, action) => {
       };
     }
     case LOAD_USER_SUCCESS: {
+      if(action.me){
+        return {
+          ...state,
+          me: action.data,
+        };
+      }
       return {
         ...state,
-        me: action.data,
-      };
+        userInfo : action.data
+      }
     }
     case LOAD_USER_FAILURE: {
       return {
