@@ -3,8 +3,8 @@ import { Avatar, Button, Card, Comment, Form, Icon, Input, List } from 'antd';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_COMMENT_REQUEST,LOAD_COMMENTS_REQUEST } from '../reducers/post';
-
+import { ADD_COMMENT_REQUEST,LOAD_COMMENTS_REQUEST, UNLIKE_POST_REQUEST, LIKE_POST_REQUEST } from '../reducers/post';
+import PostImages from './PostImages'
 const PostCard = ({ post }) => {
   const [commentFormOpened, setCommentFormOpened] = useState(false);
   const [commentText, setCommentText] = useState('');
@@ -44,14 +44,30 @@ const PostCard = ({ post }) => {
     setCommentText(e.target.value);
   }, []);
 
+  const onToggleLike = useCallback(() => {
+    if(!me){
+      alert('로그인이 필요합니다.')
+    }
+    if(post.Likers && post.Likers.find( v => v.id === me.id)){
+      dispatch({
+        type : UNLIKE_POST_REQUEST,
+        data : post.id
+      })
+    }else{
+      dispatch({
+        type : LIKE_POST_REQUEST,
+        data : post.id
+      })
+    }
+  }, [me && me.id , post && post.id])
   return (
     <div>
       <Card
         key={+post.createdAt}
-        cover={post.img && <img alt="example" src={post.img} />}
+        cover={post.Images[0] && <PostImages images={post.Images} /> }
         actions={[
           <Icon type="retweet" key="retweet" />,
-          <Icon type="heart" key="heart" />,
+          <Icon type="heart" key="heart" onClick={onToggleLike}/>,
           <Icon type="message" key="message" onClick={onToggleComment} />,
           <Icon type="ellipsis" key="ellipsis" />,
         ]}

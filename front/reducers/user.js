@@ -1,4 +1,4 @@
-import { bindActionCreators } from "../../../../../../../AppData/Local/Microsoft/TypeScript/3.1/node_modules/redux";
+// import { bindActionCreators } from "../../../../../../../AppData/Local/Microsoft/TypeScript/3.1/node_modules/redux";
 
 const dummyUser = {
   nickname: '제로초',

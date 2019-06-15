@@ -1,9 +1,26 @@
 const express = require('express');
+const multer = require('multer');
+const path = require('path');
 const db = require('../models');
 const {isLoggedIn} = require('./middleware')
 const router = express.Router();
 
-router.post('/', isLoggedIn, async (req, res, next) => { // POST /api/post
+const upload = multer({
+  storage : multer.diskStorage({
+    destination(req, file, done){  // 어느 경로에 저장을 할지
+      done(null, 'uploads')
+    },
+    filename(req, file, done ){
+      const ext = path.extname(file.originalname) // 여기는 확장자.. png, jpg 등등
+      const basename = path.basename(file.originalname, ext) // 여기는 파일명
+      done(null, basename + new Date().valueOf() + ext)
+    }
+  }),
+  limits : {filesize : 20 * 1024 * 1024}
+})
+
+
+router.post('/', isLoggedIn, upload.none() ,async (req, res, next) => { // POST /api/post
   try {
     const hashtags = req.body.content.match(/#[^\s]+/g);
     const newPost = await db.Post.create({
@@ -17,6 +34,18 @@ router.post('/', isLoggedIn, async (req, res, next) => { // POST /api/post
       console.log(result);
       await newPost.addHashtags(result.map(r => r[0]));
     }
+    if(req.body.image){
+      if(Array.isArray(req.body.image)){
+        const images = await Promise.all(req.body.image.map((image) => {
+          return db.Image.create({src : image})
+        }))
+        await newPost.addImage(images)
+      }else {
+        const image = await db.Image.create({src : req.body.image})
+        await newPost.addImage(image)
+
+      }
+    }
     // const User = await newPost.getUser();
     // newPost.User = User;
     // res.json(newPost);
@@ -24,6 +53,8 @@ router.post('/', isLoggedIn, async (req, res, next) => { // POST /api/post
       where: { id: newPost.id },
       include: [{
         model: db.User,
+      },{
+        model : db.Image
       }],
     });
     res.json(fullPost);
@@ -33,8 +64,10 @@ router.post('/', isLoggedIn, async (req, res, next) => { // POST /api/post
   }
 });
 
-router.post('/images', (req, res) => {
 
+
+router.post('/images', upload.array('image'), (req, res) => {
+  res.json(req.files.map(v => v.filename))
 });
 
 router.get('/:id/comments', async (req, res, next) => {

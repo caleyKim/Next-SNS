@@ -24,6 +24,8 @@ db.sequelize.sync();
 passportConfig();
 
 app.use(morgan('dev'))
+app.use('/' ,express.static('uploads'))
+
 app.use(express.json());
 app.use(express.urlencoded({extended : true}))
 
